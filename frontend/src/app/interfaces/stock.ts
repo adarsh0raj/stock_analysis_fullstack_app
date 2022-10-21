@@ -1,18 +1,18 @@
 export interface stock{
-    SYMBOL: string;
-    SERIES: string;
-    OPEN: number;
-    HIGH: number;
-    LOW: number;
-    CLOSE: number;
-    LAST: number;
-    PREVCLOSE: number;
-    TOTTRDQTY: number;
-    TOTTRDVAL: number;
-    TIMESTAMP: string;
-    TOTALTRADES: number;
-    ISIN: string;
-    DATE: string;
+    symbol: string;
+    date: string;
+    close: number;
+    series: string;
+    open: number;
+    high: number;
+    low: number;
+    last: number;
+    prevclose: number;
+    tottrdqty: number;
+    tottrdval: number;
+    timestamp: string;
+    totaltrades: number;
+    isin: string;
 }
 
 export interface day {
