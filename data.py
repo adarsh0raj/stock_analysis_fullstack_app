@@ -22,6 +22,7 @@ for d in dates:
     except:
         continue
 
+# print(data.dtypes)
 conn = psycopg2.connect(dbname='zenskar', user='adarsh', password='adarsh', host='127.0.0.1', port='5432')
 cur = conn.cursor()
 
