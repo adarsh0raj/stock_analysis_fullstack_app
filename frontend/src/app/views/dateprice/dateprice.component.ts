@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { day } from '../../interfaces/stock';
+import { day, stock } from '../../interfaces/stock';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -13,7 +13,11 @@ export class DatepriceComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   dates: string[] = [];
+  stcks: stock[] = [];
   date = new FormControl('');
+  date_data: any;
+  default_stocks: string = 'BANG-5PAISA-RELIANCE-TATASTEEL-TATAMOTORS-TATAPOWER-TATACONSUM-TATACHEM-TATACOMM-TATAELXSI';
+
   not_data_sent: boolean = true;
   data_sent: boolean = false;
 
@@ -29,9 +33,20 @@ export class DatepriceComponent implements OnInit {
   }
 
   formSubmit() {
-    console.log(this.date.value);
-    this.date.reset();
+    this.date_data = this.date.value;
+    this.http.get<stock[]>(`http://localhost:3000/stocks/${this.default_stocks}/${this.date.value}`).subscribe(data => {
+      console.log(data);
+      this.stcks = data.map(x => { return { ...x, date: x.date.split(' ')[0] }});
+      this.date.reset();
+    });
     this.not_data_sent = false;
     this.data_sent = true;
+  }
+
+  resetData() {
+    this.date.reset();
+    this.not_data_sent = true;
+    this.data_sent = false;
+    this.stcks = [];
   }
 }
