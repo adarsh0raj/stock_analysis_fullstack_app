@@ -20,6 +20,21 @@ const routes: Routes = [
         path: 'dashboard',
         loadChildren: () =>
           import('./views/dashboard/dashboard.module').then((m) => m.DashboardModule)
+      },
+      {
+        path: 'closeprice',
+        loadChildren: () =>
+          import('./views/closeprice/closeprice.module').then((m) => m.ClosepriceModule)
+      },
+      {
+        path: 'date',
+        loadChildren: () =>
+          import('./views/dateprice/dateprice.module').then((m) => m.DatepriceModule)
+      },
+      {
+        path: 'highlow',
+        loadChildren: () =>
+          import('./views/hl/hl.module').then((m) => m.HlModule)
       }
     ]
   },
@@ -33,7 +48,6 @@ const routes: Routes = [
       anchorScrolling: 'enabled',
       initialNavigation: 'enabledBlocking',
       useHash: false
-      // relativeLinkResolution: 'legacy'
     })
   ],
   exports: [RouterModule]
