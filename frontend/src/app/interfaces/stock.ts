@@ -15,7 +15,7 @@ export interface stock{
     DATE: string;
 }
 
-export interface dates {
-    start_date: string;
-    end_date: string;
+export interface day {
+    date: string;
 }
+

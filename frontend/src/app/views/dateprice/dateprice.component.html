@@ -1,1 +1,24 @@
-<p>dateprice works!</p>
+<c-row>
+    <c-col xs>
+      <c-card class="mb-4">
+        <c-card-header class="h4">Enter Inputs</c-card-header>
+        <c-card-header>Get Close Prices Of 10 popular stocks for a certain date.</c-card-header>
+        <c-card-header>Available Dates: <span *ngFor="let date of dates"> {{date}},</span>.</c-card-header>
+        <c-card-body>
+            <div>
+                List Of Stocks: BANG, 5PAISA, RELIANCE, TATASTEEL, TATAMOTORS, TATAPOWER, TATACONSUM, TATACHEM, TATACOMM, TATAELXSI
+            </div>
+            <br>
+            <form action="">
+                  <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Date (YYYY-MM-DD)</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="2021-01-01">
+                  </div>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary mb-3">Get Results</button>
+                </div>
+            </form> 
+        </c-card-body>              
+      </c-card>
+    </c-col>
+  </c-row>

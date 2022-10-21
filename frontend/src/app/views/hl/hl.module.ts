@@ -19,6 +19,7 @@ import { ChartjsModule } from '@coreui/angular-chartjs';
 
 import { HlRoutingModule } from './hl-routing.module'; 
 import { HlComponent } from './hl.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
@@ -37,7 +38,8 @@ import { HlComponent } from './hl.component';
     ButtonGroupModule,
     ChartjsModule,
     AvatarModule,
-    TableModule
+    TableModule,
+    HttpClientModule
   ],
   declarations: [HlComponent]
 })

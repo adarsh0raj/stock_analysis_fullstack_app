@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import {
   AvatarModule,
@@ -37,7 +38,8 @@ import { ClosepriceComponent } from './closeprice.component';
     ButtonGroupModule,
     ChartjsModule,
     AvatarModule,
-    TableModule
+    TableModule,
+    HttpClientModule
   ],
   declarations: [ClosepriceComponent]
 })

@@ -19,6 +19,7 @@ import { ChartjsModule } from '@coreui/angular-chartjs';
 
 import { DatepriceRoutingModule } from './dateprice-routing.module';
 import { DatepriceComponent } from './dateprice.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
@@ -37,7 +38,8 @@ import { DatepriceComponent } from './dateprice.component';
     ButtonGroupModule,
     ChartjsModule,
     AvatarModule,
-    TableModule
+    TableModule,
+    HttpClientModule
   ],
   declarations: [DatepriceComponent]
 })

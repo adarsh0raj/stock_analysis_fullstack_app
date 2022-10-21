@@ -16,6 +16,15 @@ app.get('/stocks', async(req, res) => {
     }
 });
 
+app.get('/stocks/dates', async(req, res) => {
+    try {
+        const dates = await pool.query('SELECT DISTINCT date FROM Stocks');
+        res.json(dates.rows);
+    } catch (err) {
+        console.error(err.message);
+    }
+});
+
 app.get('/stocks/:id/:startdate/:enddate', async(req, res) => {
     try {
         const { id, startdate, enddate } = req.params;
