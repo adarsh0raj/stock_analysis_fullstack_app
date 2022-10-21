@@ -42,7 +42,7 @@ ddl = '''DROP TABLE IF EXISTS Stocks;
             TIMESTAMP varchar(255),
             TOTALTRADES int,
             ISIN varchar(255),
-            DATE date
+            DATE varchar(255)
         );'''
 
 cur.execute(ddl)
