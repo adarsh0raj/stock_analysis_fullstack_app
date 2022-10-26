@@ -52,6 +52,12 @@
             </tbody>
           </table>
         </c-card-body>  
+
+        <c-card-header class="h4" *ngIf="chartData">Chart</c-card-header>
+          <c-card-body *ngIf="chartData">
+            <c-chart type="line" [data]="chartLineData" ></c-chart>
+        </c-card-body>
+        
         <c-card-header>
           <button cButton class="primary" (click)="resetData()"> Enter Another Data </button>
         </c-card-header>            

@@ -27,10 +27,10 @@ export class DatepriceComponent implements OnInit {
       {
         label: '',
         backgroundColor: 'rgba(220, 220, 220, 0.2)',
-        borderColor: 'rgba(220, 220, 220, 1)',
+        borderColor: 'rgba(100, 100, 100, 1)',
         pointBackgroundColor: 'rgba(220, 220, 220, 1)',
-        pointBorderColor: '#fff',
-        data: [0,0,0,0,0,0,0,0,0,0],
+        pointBorderColor: 'rgba(150, 150, 150, 1)',
+        data: Array<number>(),
       }
     ]
   };
@@ -71,7 +71,7 @@ export class DatepriceComponent implements OnInit {
     this.data_sent = false;
     this.chartData = false;
     this.stcks = [];
-    this.chartLineData.datasets[0].data = [0,0,0,0,0,0,0,0,0,0];
+    this.chartLineData.datasets[0].data = Array<number>();
     this.chartLineData.datasets[0].label = '';
   }
 }

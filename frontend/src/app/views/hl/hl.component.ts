@@ -26,6 +26,33 @@ export class HlComponent implements OnInit {
   enddate = new FormControl('');
   data_arr: any[] = [];
 
+  chartLineData = {
+    labels: Array<string>(),
+    datasets: [
+      {
+        label: '',
+        backgroundColor: 'rgba(220, 220, 220, 0.2)',
+        borderColor: 'rgba(0, 255, 0, 1)',
+        pointBackgroundColor: 'rgba(220, 220, 220, 1)',
+        pointBorderColor: 'rgba(150, 150, 150, 1)',
+        data: Array<number>(),
+      },
+      {
+        label: '',
+        backgroundColor: 'rgba(220, 220, 220, 0.2)',
+        borderColor: 'rgba(255, 0, 0, 1)',
+        pointBackgroundColor: 'rgba(220, 220, 220, 1)',
+        pointBorderColor: 'rgba(150, 150, 150, 1)',
+        data: Array<number>(),
+      }
+    ]
+  };
+
+  chartLineOptions = {
+    maintainAspectRatio: false,
+  };
+  chartData: boolean = false;
+
   ngOnInit(): void {
     this.getDates();
   }
@@ -36,7 +63,6 @@ export class HlComponent implements OnInit {
       this.dates.sort();
       this.start_date = this.dates[0];
       this.end_date = this.dates[this.dates.length - 1];
-      // console.log(this.dates);
     });
   }
 
@@ -48,6 +74,12 @@ export class HlComponent implements OnInit {
       this.symbol.reset();
       this.startdate.reset();
       this.enddate.reset();
+      this.chartLineData.labels = this.stcks.map(x => x.date);
+      this.chartLineData.datasets[0].data = this.stcks.map(x => x.high);
+      this.chartLineData.datasets[0].label = this.data_arr[0]+'High';
+      this.chartLineData.datasets[1].data = this.stcks.map(x => x.low);
+      this.chartLineData.datasets[1].label = this.data_arr[0]+'Low';
+      this.chartData = true;
     });
     this.not_data_sent = false;
     this.data_sent = true;
@@ -59,7 +91,13 @@ export class HlComponent implements OnInit {
     this.enddate.reset();
     this.not_data_sent = true;
     this.data_sent = false;
+    this.chartData = false;
     this.stcks = [];
+    this.chartLineData.labels = Array<string>();
+    this.chartLineData.datasets[0].data = Array<number>();
+    this.chartLineData.datasets[0].label = '';
+    this.chartLineData.datasets[1].data = Array<number>();
+    this.chartLineData.datasets[1].label = '';
   }
 
 }
