@@ -20,6 +20,25 @@ export class DatepriceComponent implements OnInit {
 
   not_data_sent: boolean = true;
   data_sent: boolean = false;
+ 
+  chartLineData = {
+    labels: ['BANG', '5PAISA', 'RELIANCE', 'TATASTEEL', 'TATAMOTORS', 'TATAPOWER', 'TATACONSUM', 'TATACHEM', 'TATACOMM', 'TATAELXSI'],
+    datasets: [
+      {
+        label: '',
+        backgroundColor: 'rgba(220, 220, 220, 0.2)',
+        borderColor: 'rgba(220, 220, 220, 1)',
+        pointBackgroundColor: 'rgba(220, 220, 220, 1)',
+        pointBorderColor: '#fff',
+        data: [0,0,0,0,0,0,0,0,0,0],
+      }
+    ]
+  };
+
+  chartLineOptions = {
+    maintainAspectRatio: false,
+  };
+  chartData: boolean = false;
 
   ngOnInit(): void {
     this.getDates();
@@ -38,6 +57,9 @@ export class DatepriceComponent implements OnInit {
       console.log(data);
       this.stcks = data.map(x => { return { ...x, date: x.date.split(' ')[0] }});
       this.date.reset();
+      this.chartLineData.datasets[0].data = this.stcks.map(x => x.close);
+      this.chartLineData.datasets[0].label = this.date_data;
+      this.chartData = true;
     });
     this.not_data_sent = false;
     this.data_sent = true;
@@ -47,6 +69,9 @@ export class DatepriceComponent implements OnInit {
     this.date.reset();
     this.not_data_sent = true;
     this.data_sent = false;
+    this.chartData = false;
     this.stcks = [];
+    this.chartLineData.datasets[0].data = [0,0,0,0,0,0,0,0,0,0];
+    this.chartLineData.datasets[0].label = '';
   }
 }
