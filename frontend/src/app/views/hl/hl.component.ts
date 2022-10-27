@@ -76,9 +76,9 @@ export class HlComponent implements OnInit {
       this.enddate.reset();
       this.chartLineData.labels = this.stcks.map(x => x.date);
       this.chartLineData.datasets[0].data = this.stcks.map(x => x.high);
-      this.chartLineData.datasets[0].label = this.data_arr[0]+'High';
+      this.chartLineData.datasets[0].label = this.data_arr[0]+'-High';
       this.chartLineData.datasets[1].data = this.stcks.map(x => x.low);
-      this.chartLineData.datasets[1].label = this.data_arr[0]+'Low';
+      this.chartLineData.datasets[1].label = this.data_arr[0]+'-Low';
       this.chartData = true;
     });
     this.not_data_sent = false;
