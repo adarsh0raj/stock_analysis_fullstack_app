@@ -22,7 +22,7 @@ export class DatepriceComponent implements OnInit {
   data_sent: boolean = false;
  
   chartLineData = {
-    labels: ['BANG', '5PAISA', 'RELIANCE', 'TATASTEEL', 'TATAMOTORS', 'TATAPOWER', 'TATACONSUM', 'TATACHEM', 'TATACOMM', 'TATAELXSI'],
+    labels: this.default_stocks.split('-'),
     datasets: [
       {
         label: '',

@@ -61,7 +61,6 @@ export class ClosepriceComponent implements OnInit {
   formSubmit() {
     this.data_arr = [this.symbol.value, this.startdate.value, this.enddate.value];
     this.http.get<stock[]>(`http://localhost:3000/stocks/${this.symbol.value}/${this.startdate.value}/${this.enddate.value}`).subscribe(data => {
-      console.log(data);
       this.stcks = data.map(x => { return { ...x, date: x.date.split(' ')[0] }});
       this.symbol.reset();
       this.startdate.reset();
